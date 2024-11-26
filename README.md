@@ -6,7 +6,7 @@ Some robot setups for testing Edoras and other robotic projects. Right now, 2 ar
 
 Gateway demo:
 -------------
-Launches a kinematic simulation of Gateway. The user can use the joint state publisher gui to move any of the 2 robot arms available:
+Launches a kinematic simulation of Gateway (models originally from the NASA's [3D resources repo](https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Gateway). The user can use the joint state publisher gui to move any of the 2 robot arms available:
 
 ```
 ros2 launch gateway_description view_gateway.launch.py 
