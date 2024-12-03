@@ -9,5 +9,12 @@
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
   </xacro:little_arm>
 
+  <link name="little_arm_link_tcp"/>
+
+  <joint name="little_arm_tcp" type="fixed">
+    <parent link="little_arm_link_8"/>
+    <child link="little_arm_link_tcp"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
 
 </robot>

@@ -20,5 +20,4 @@
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
   </xacro:little_arm>
 
-
 </robot>
