@@ -19,7 +19,8 @@ install(DIRECTORY
     launch
     meshes
     rviz
-    urdf
+    xacro
+    robots
     DESTINATION  ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 

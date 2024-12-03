@@ -182,6 +182,10 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        world:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -192,7 +196,7 @@ Visualization Manager:
   Global Options:
     Background Color: 0; 0; 0
     Default Light: true
-    Fixed Frame: root
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -252,5 +256,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 59
-  Y: 40
+  X: 436
+  Y: 37

@@ -3,11 +3,9 @@
 
   <arg name="sim" default="true"/>
   <arg name="rviz" default="true"/>
- 
- 
- 
-  <param name="robot_description" command="$(find xacro)/xacro '$(find gateway_description)/urdf/gateway.urdf.xacro'"/>
 
+  <param name="robot_description" command="$(find xacro)/xacro '$(find gateway_description)/robots/gateway.urdf.xacro'"/>
+  
   <node name="joint_state_publisher_gui" 
         pkg="joint_state_publisher_gui" 
         type="joint_state_publisher_gui" 
@@ -33,7 +31,7 @@
   <node name="rviz" 
         pkg="rviz" 
         type="rviz" 
-        args="-d $(find gateway_description)/rviz/view_robot.rviz"
+        args="-d $(find gateway_description)/rviz/view_gateway.rviz"
         respawn="false" 
         output="screen" 
         if="$(arg rviz)"/>

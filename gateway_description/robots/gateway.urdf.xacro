@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="gateway">
+
+  <xacro:include filename="$(find gateway_description)/xacro/gateway_body_macro.xacro"/>
+  <xacro:include filename="$(find gateway_description)/xacro/big_arm_macro.xacro"/>
+  <xacro:include filename="$(find gateway_description)/xacro/little_arm_macro.xacro"/>
+
+  <link name="world"/>
+  
+  <xacro:gateway_body  parent="world">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </xacro:gateway_body>
+
+  
+  <xacro:big_arm  parent="root">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
+  </xacro:big_arm>
+
+  <xacro:little_arm  parent="root">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
+  </xacro:little_arm>
+
+
+</robot>

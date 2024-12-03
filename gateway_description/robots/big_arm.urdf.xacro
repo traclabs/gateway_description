@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="big_arm">
+
+  <xacro:include filename="$(find gateway_description)/xacro/big_arm_macro.xacro"/>
+
+  <link name="root"/>
+  
+  <xacro:big_arm  parent="root">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
+  </xacro:big_arm>
+
+</robot>

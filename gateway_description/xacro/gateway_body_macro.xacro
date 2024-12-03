@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="gateway_body">
+  
+  <xacro:macro name="gateway_body" params=" parent:='' *origin ">
+
+  
+  <link name="root"/>
+  
+  <joint name="joint_root" type="fixed">
+    <parent link="${parent}"/>
+    <child link="root"/>
+    <xacro:insert_block name="origin"/>
+  </joint>
+  
+  <link name="airlock">
+    <visual>
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/airlock/airlock.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+    <collision> 
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/airlock/airlock.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>    
+  </link>
+
+
+  <link name="ihab">
+    <visual>
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/ihab/ihab.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+    <collision> 
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/ihab/ihab.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>    
+  </link>
+
+  <link name="ng_halo">
+    <visual>
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/ng_halo/ng_halo.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+    <collision> 
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/ng_halo/ng_halo.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>    
+  </link>
+
+  <link name="ermxl">
+    <visual>
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/ermxl/ermxl.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+    <collision> 
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/ermxl/ermxl.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>    
+  </link>
+
+  <link name="maxar_ppe">
+    <visual>
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/maxar_ppe/maxar_ppe.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </visual>
+    <collision> 
+      <geometry>
+        <mesh filename="package://gateway_description/meshes/maxar_ppe/maxar_ppe.dae" scale="1.0 1.0 1.0"/>
+      </geometry>
+    </collision>    
+  </link>
+
+
+
+<!--  <joint name="joint_root_mover" type="fixed">
+    <parent link="root"/>
+    <child link="mover"/>
+    <origin xyz="0.0 0.0 0.0" rpy="-0.1454025 -0.4132539 -1.3967219"/>
+  </joint>
+-->
+
+  <joint name="joint_root_airlock" type="fixed">
+    <parent link="root"/>
+    <child link="airlock"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <joint name="joint_root_ihab" type="fixed">
+    <parent link="root"/>
+    <child link="ihab"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <joint name="joint_root_ng_halo" type="fixed">
+    <parent link="root"/>
+    <child link="ng_halo"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <joint name="joint_root_ermxl" type="fixed">
+    <parent link="root"/>
+    <child link="ermxl"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  <joint name="joint_root_maxar_ppe" type="fixed">
+    <parent link="root"/>
+    <child link="maxar_ppe"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+
+  </xacro:macro>
+
+</robot>

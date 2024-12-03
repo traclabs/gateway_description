@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="little_arm">
+
+  <xacro:include filename="$(find gateway_description)/xacro/little_arm_macro.xacro"/>
+
+  <link name="root"/>
+
+  <xacro:little_arm  parent="root">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
+  </xacro:little_arm>
+
+
+</robot>

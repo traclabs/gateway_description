@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="gateway_body">
+
+  <xacro:include filename="$(find gateway_description)/xacro/gateway_body_macro.xacro"/>
+
+  <link name="world"/>
+  
+  <xacro:gateway_body  parent="world">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </xacro:gateway_body>
+
+</robot>
