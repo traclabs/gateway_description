@@ -1,18 +1,16 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.6)
 project(gateway_description)
 
+find_package(ament_cmake REQUIRED)
+find_package(rviz_rendering REQUIRED)
 
-find_package(
-  catkin REQUIRED COMPONENTS
-  joint_state_publisher
+# Adds shallow folders containing ogre_media such as meshes and scripts to Rviz
+# so that they can be found at runtime. Requires rviz_rendering.
+register_rviz_ogre_media_exports(
+    DIRECTORIES
+    "meshes"
+#    "meshes/ng_halo"
   )
-
-catkin_package(
-  #INCLUDE_DIRS include
-  #LIBRARIES yumi_executors
-  CATKIN_DEPENDS
-  #joint_state_publisher
-)
 
 
 install(DIRECTORY
@@ -21,6 +19,9 @@ install(DIRECTORY
     rviz
     xacro
     robots
-    DESTINATION  ${CATKIN_PACKAGE_SHARE_DESTINATION})
+    DESTINATION share/${PROJECT_NAME})
 
+ament_export_dependencies(${THIS_PACKAGE_INCLUDE_DEPENDS})
+
+ament_package()
 

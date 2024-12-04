@@ -127,19 +127,19 @@
     </collision>    
   </link>
 
-  <joint name="joint_little_arm_joint_0" type="fixed">
+  <joint name="little_arm_joint_0" type="fixed">
     <parent link="${parent}"/>
     <child link="little_arm_link_0"/>
     <xacro:insert_block name="origin"/>
   </joint>
   
-  <joint name="joint_little_arm_joint_1" type="fixed">
+  <joint name="little_arm_joint_1" type="fixed">
     <parent link="little_arm_link_0"/>
     <child link="little_arm_link_1"/>
     <origin xyz="13.984 -1.3352 -1.3367" rpy="2.3562 0.0 0.0"/>
   </joint>
 
-  <joint name="joint_little_arm_joint_2" type="revolute">
+  <joint name="little_arm_joint_2" type="revolute">
     <parent link="little_arm_link_1"/>
     <child link="little_arm_link_2"/>
     <axis xyz="0 0 1"/>
@@ -147,7 +147,7 @@
     <origin xyz="0.44043 0.010424 0.29487" rpy="0.0 0.0 0.0"/>
   </joint>
 
-  <joint name="joint_little_arm_joint_3" type="revolute">
+  <joint name="little_arm_joint_3" type="revolute">
     <parent link="little_arm_link_2"/>
     <child link="little_arm_link_3"/>
     <origin xyz="0.38687 -0.008157 0.011094" rpy="0.0 0.0  0.0"/>
@@ -156,7 +156,7 @@
   </joint>
 
 
-  <joint name="joint_little_arm_joint_4" type="revolute">
+  <joint name="little_arm_joint_4" type="revolute">
     <parent link="little_arm_link_3"/>
     <child link="little_arm_link_4"/>
     <origin xyz="0.097745 0.0 -0.10467" rpy="0.0 0.0 1.5708"/>
@@ -165,7 +165,7 @@
   </joint>
 
 
-  <joint name="joint_little_arm_joint_5" type="revolute">
+  <joint name="little_arm_joint_5" type="revolute">
     <parent link="little_arm_link_4"/>
     <child link="little_arm_link_5"/>
     <origin xyz="-0.006176 -0.10467 -0.094197" rpy="0.0 0.0 0.0"/>
@@ -174,7 +174,7 @@
   </joint>
 
 
-  <joint name="joint_little_arm_joint_6" type="revolute">
+  <joint name="little_arm_joint_6" type="revolute">
     <parent link="little_arm_link_5"/>
     <child link="little_arm_link_6"/>
     <origin xyz="0.47551 -0.21354 0.008568" rpy="0.0 -0.6108 0.0"/>
@@ -183,7 +183,7 @@
   </joint>
 
 
-  <joint name="joint_little_arm_joint_7" type="revolute">
+  <joint name="little_arm_joint_7" type="revolute">
     <parent link="little_arm_link_6"/>
     <child link="little_arm_link_7"/>
     <origin xyz="0.47551 -0.21354 0.008567" rpy="0.0 0.4363324 0.0"/>
@@ -192,7 +192,7 @@
   </joint>
 
 
-  <joint name="joint_little_arm_joint_8" type="revolute">
+  <joint name="little_arm_joint_8" type="revolute">
     <parent link="little_arm_link_7"/>
     <child link="little_arm_link_8"/>
     <origin xyz="0.10062 -0.10467 -0.014366" rpy="0.0 0.0 0.0"/>
@@ -200,7 +200,7 @@
     <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
-  <joint name="joint_little_arm_joint_9" type="revolute">
+  <joint name="little_arm_joint_9" type="revolute">
     <parent link="little_arm_link_8"/>
     <child link="little_arm_link_9"/>
     <origin xyz="0.10467 0.000167 -0.10062" rpy="0.0 0.0 0.0"/>
