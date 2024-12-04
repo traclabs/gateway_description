@@ -220,77 +220,77 @@
     </collision>    
   </link>
 
-  <joint name="joint_big_arm_joint_0" type="fixed">
+  <joint name="big_arm_joint_0" type="fixed">
     <parent link="root"/>
     <child link="big_arm_link_0"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
   </joint>
   
-  <joint name="joint_big_arm_joint_1" type="fixed">
+  <joint name="big_arm_joint_1" type="fixed">
     <parent link="big_arm_link_0"/>
     <child link="big_arm_link_1"/>
     <origin xyz="3.7698 0.3139 1.6058" rpy="0.0 -0.2094 -1.5708"/>
   </joint>
 
-  <joint name="joint_big_arm_joint_2" type="revolute">
+  <joint name="big_arm_joint_2" type="revolute">
     <parent link="big_arm_link_1"/>
     <child link="big_arm_link_2"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
     <origin xyz="0.0 0.0 0.4409" rpy="0.0 0.0 0.8726648"/>
   </joint>
 
-  <joint name="joint_big_arm_joint_3" type="revolute">
+  <joint name="big_arm_joint_3" type="revolute">
     <parent link="big_arm_link_2"/>
     <child link="big_arm_link_3"/>
     <origin xyz="0.0 -0.177 0.1515" rpy="2.98023e-8 0.0  1.862645e-8"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_big_arm_joint_4" type="revolute">
+  <joint name="big_arm_joint_4" type="revolute">
     <parent link="big_arm_link_3"/>
     <child link="big_arm_link_4"/>
     <origin xyz="0.17432 -0.1594 0.0" rpy="0.95993114 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_big_arm_joint_5" type="revolute">
+  <joint name="big_arm_joint_5" type="revolute">
     <parent link="big_arm_link_4"/>
     <child link="big_arm_link_5"/>
     <origin xyz="0.3503 -0.004789 3.6578" rpy="1.3089968 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_big_arm_joint_6" type="revolute">
+  <joint name="big_arm_joint_6" type="revolute">
     <parent link="big_arm_link_5"/>
     <child link="big_arm_link_6"/>
     <origin xyz="0.3503 0.004781 -3.6578" rpy="-0.5235989 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_big_arm_joint_7" type="revolute">
+  <joint name="big_arm_joint_7" type="revolute">
     <parent link="big_arm_link_6"/>
     <child link="big_arm_link_7"/>
     <origin xyz="0.17429 -0.15194 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_big_arm_joint_8" type="revolute">
+  <joint name="big_arm_joint_8" type="revolute">
     <parent link="big_arm_link_7"/>
     <child link="big_arm_link_8"/>
     <origin xyz="-0.004217 -0.1708 -0.181" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
@@ -418,85 +418,85 @@
     </collision>    
   </link>
 
-  <joint name="joint_little_arm_joint_0" type="fixed">
+  <joint name="little_arm_joint_0" type="fixed">
     <parent link="root"/>
     <child link="little_arm_link_0"/>
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
   </joint>
   
-  <joint name="joint_little_arm_joint_1" type="fixed">
+  <joint name="little_arm_joint_1" type="fixed">
     <parent link="little_arm_link_0"/>
     <child link="little_arm_link_1"/>
     <origin xyz="13.984 -1.3352 -1.3367" rpy="2.3562 0.0 0.0"/>
   </joint>
 
-  <joint name="joint_little_arm_joint_2" type="revolute">
+  <joint name="little_arm_joint_2" type="revolute">
     <parent link="little_arm_link_1"/>
     <child link="little_arm_link_2"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
     <origin xyz="0.44043 0.010424 0.29487" rpy="0.0 0.0 0.0"/>
   </joint>
 
-  <joint name="joint_little_arm_joint_3" type="revolute">
+  <joint name="little_arm_joint_3" type="revolute">
     <parent link="little_arm_link_2"/>
     <child link="little_arm_link_3"/>
     <origin xyz="0.38687 -0.008157 0.011094" rpy="0.0 0.0  0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_little_arm_joint_4" type="revolute">
+  <joint name="little_arm_joint_4" type="revolute">
     <parent link="little_arm_link_3"/>
     <child link="little_arm_link_4"/>
     <origin xyz="0.097745 0.0 -0.10467" rpy="0.0 0.0 1.5708"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_little_arm_joint_5" type="revolute">
+  <joint name="little_arm_joint_5" type="revolute">
     <parent link="little_arm_link_4"/>
     <child link="little_arm_link_5"/>
     <origin xyz="-0.006176 -0.10467 -0.094197" rpy="0.0 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_little_arm_joint_6" type="revolute">
+  <joint name="little_arm_joint_6" type="revolute">
     <parent link="little_arm_link_5"/>
     <child link="little_arm_link_6"/>
     <origin xyz="0.47551 -0.21354 0.008568" rpy="0.0 -0.6108 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_little_arm_joint_7" type="revolute">
+  <joint name="little_arm_joint_7" type="revolute">
     <parent link="little_arm_link_6"/>
     <child link="little_arm_link_7"/>
     <origin xyz="0.47551 -0.21354 0.008567" rpy="0.0 0.4363324 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
-  <joint name="joint_little_arm_joint_8" type="revolute">
+  <joint name="little_arm_joint_8" type="revolute">
     <parent link="little_arm_link_7"/>
     <child link="little_arm_link_8"/>
     <origin xyz="0.10062 -0.10467 -0.014366" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
-  <joint name="joint_little_arm_joint_9" type="revolute">
+  <joint name="little_arm_joint_9" type="revolute">
     <parent link="little_arm_link_8"/>
     <child link="little_arm_link_9"/>
     <origin xyz="0.10467 0.000167 -0.10062" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-1.5708" upper="1.5708" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 </robot>
