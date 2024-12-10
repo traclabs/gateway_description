@@ -129,7 +129,7 @@
     <parent link="big_arm_link_1"/>
     <child link="big_arm_link_2"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
     <origin xyz="0.0 0.0 0.4409" rpy="0.0 0.0 0.8726648"/>
   </joint>
 
@@ -138,7 +138,7 @@
     <child link="big_arm_link_3"/>
     <origin xyz="0.0 -0.177 0.1515" rpy="2.98023e-8 0.0  1.862645e-8"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
@@ -147,7 +147,7 @@
     <child link="big_arm_link_4"/>
     <origin xyz="0.17432 -0.1594 0.0" rpy="0.95993114 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
@@ -156,7 +156,7 @@
     <child link="big_arm_link_5"/>
     <origin xyz="0.3503 -0.004789 3.6578" rpy="1.3089968 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
@@ -165,7 +165,7 @@
     <child link="big_arm_link_6"/>
     <origin xyz="0.3503 0.004781 -3.6578" rpy="-0.5235989 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
@@ -174,7 +174,7 @@
     <child link="big_arm_link_7"/>
     <origin xyz="0.17429 -0.15194 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
 
@@ -183,7 +183,7 @@
     <child link="big_arm_link_8"/>
     <origin xyz="-0.004217 -0.1708 -0.181" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-1.5708" upper="1.5708" velocity="100" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>
 
   </xacro:macro>
