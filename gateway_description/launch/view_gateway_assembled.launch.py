@@ -21,8 +21,17 @@ def generate_launch_description():
             description="launch rviz",
         )
     )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "gui",
+            default_value='true',
+            description="launch joint control guis",
+        )
+    )
+
     example_arg = LaunchConfiguration("example_arg")
     rviz = LaunchConfiguration("rviz")
+    gui = LaunchConfiguration("gui")
 
     # *****************************
     # Gateway body (static)
@@ -66,7 +75,8 @@ def generate_launch_description():
     big_arm_jsp = Node(
         package="joint_state_publisher_gui",
         executable="joint_state_publisher_gui",
-        namespace="big_arm"
+        namespace="big_arm",
+        condition=IfCondition(gui)
     )
 
     # *************************
@@ -91,7 +101,8 @@ def generate_launch_description():
     little_arm_jsp = Node(
         package="joint_state_publisher_gui",
         executable="joint_state_publisher_gui",
-        namespace="little_arm"
+        namespace="little_arm",
+        condition=IfCondition(gui)
     )
 
 
