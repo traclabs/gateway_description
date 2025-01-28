@@ -49,13 +49,13 @@ def generate_launch_description():
         output="both",
         parameters=[
             gateway_robot_description,
-            {'frame_prefix': ''}], # gateway/
+            {'frame_prefix': ''}],
         namespace="gateway_body"
     )
 
-    # **************************
+    # ***********************
     #  Big Arm
-    # **************************
+    # ***********************
     big_arm_xacro = Command([
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
@@ -69,7 +69,7 @@ def generate_launch_description():
         output="both",
         parameters=[
             big_arm_robot_description,
-            {'frame_prefix': ''}], # big_arm/
+            {'frame_prefix': ''}],
         namespace="big_arm"
     )
     big_arm_jsp = Node(
@@ -79,7 +79,7 @@ def generate_launch_description():
         condition=IfCondition(gui)
     )
 
-    # *************************
+    # **************************
     #  Little Arm
     # **************************
     little_arm_xacro = Command([
@@ -95,7 +95,7 @@ def generate_launch_description():
         output="both",
         parameters=[
             little_arm_robot_description,
-            {'frame_prefix': ''}], # little_arm/
+            {'frame_prefix': ''}],
         namespace="little_arm"
     )
     little_arm_jsp = Node(
@@ -105,7 +105,9 @@ def generate_launch_description():
         condition=IfCondition(gui)
     )
 
-
+    # **************************************
+    # RVIZ
+    #***************************************
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare("gateway_description"), "rviz", "view_gateway_assembled.rviz"]
     )
