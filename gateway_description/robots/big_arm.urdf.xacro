@@ -3,9 +3,9 @@
 
   <xacro:include filename="$(find gateway_description)/xacro/big_arm_macro.xacro"/>
 
-  <link name="root"/>
+  <!-- <link name="gateway_body/root"/> -->
   
-  <xacro:big_arm  parent="root">
+  <xacro:big_arm>  <!-- parent="gateway_body/root"-->
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
   </xacro:big_arm>
 

@@ -49,7 +49,7 @@ def generate_launch_description():
         output="both",
         parameters=[
             gateway_robot_description,
-            {'frame_prefix': ''}],
+            {'frame_prefix': 'gateway_body/'}],
         namespace="gateway_body"
     )
 
@@ -69,7 +69,7 @@ def generate_launch_description():
         output="both",
         parameters=[
             big_arm_robot_description,
-            {'frame_prefix': ''}],
+            {'frame_prefix': 'big_arm/'}],
         namespace="big_arm"
     )
     big_arm_jsp = Node(
@@ -95,7 +95,7 @@ def generate_launch_description():
         output="both",
         parameters=[
             little_arm_robot_description,
-            {'frame_prefix': ''}],
+            {'frame_prefix': 'little_arm/'}],
         namespace="little_arm"
     )
     little_arm_jsp = Node(
@@ -104,6 +104,20 @@ def generate_launch_description():
         namespace="little_arm",
         condition=IfCondition(gui)
     )
+
+    little_arm_static_pub = Node(
+            package="tf2_ros",
+            executable="static_transform_publisher",
+            output="screen",
+            arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "little_arm/little_arm_link_0"]
+        )
+
+    big_arm_static_pub = Node(
+            package="tf2_ros",
+            executable="static_transform_publisher",
+            output="screen",
+            arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "big_arm/big_arm_link_0"]
+        )
 
     # **************************************
     # RVIZ
@@ -125,8 +139,10 @@ def generate_launch_description():
         gateway_rsp,
         big_arm_rsp,
         big_arm_jsp,
+        big_arm_static_pub,
         little_arm_rsp,
         little_arm_jsp,
+        little_arm_static_pub,
         rviz_node,
     ]
 

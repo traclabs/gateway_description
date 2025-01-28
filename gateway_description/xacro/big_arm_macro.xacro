@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="big_arm">
 
   <!-- BIG ARM -->
-  <xacro:macro name="big_arm" params=" parent:='' *origin ">
+  <xacro:macro name="big_arm" params=" *origin "> <!-- parent:=''-->
 
   <link name="big_arm_link_0"/>
 
@@ -113,11 +113,11 @@
     </collision>    
   </link>
 
-  <joint name="big_arm_joint_0" type="fixed">
+  <!-- <joint name="big_arm_joint_0" type="fixed">
     <parent link="${parent}"/>
     <child link="big_arm_link_0"/>
     <xacro:insert_block name="origin"/>
-  </joint>
+  </joint> -->
   
   <joint name="big_arm_joint_1" type="fixed">
     <parent link="big_arm_link_0"/>
