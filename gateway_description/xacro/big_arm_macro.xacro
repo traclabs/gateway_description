@@ -122,7 +122,8 @@
   <joint name="big_arm_joint_1" type="fixed">
     <parent link="big_arm_link_0"/>
     <child link="big_arm_link_1"/>
-    <origin xyz="3.7698 0.3139 1.6058" rpy="0.0 -0.2094 -1.5708"/>
+    <!-- <origin xyz="3.7698 0.3139 1.6058" rpy="0.0 -0.2094 -1.5708"/> -->
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
   </joint>
 
   <joint name="big_arm_joint_2" type="revolute">

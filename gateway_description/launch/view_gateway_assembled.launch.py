@@ -3,17 +3,10 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch.conditions import IfCondition, UnlessCondition
+from launch.conditions import IfCondition
 
 def generate_launch_description():
     declared_arguments = []
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "example_arg",
-            default_value='false',
-            description="example arg to show how to do this",
-        )
-    )
     declared_arguments.append(
         DeclareLaunchArgument(
             "rviz",
@@ -29,7 +22,6 @@ def generate_launch_description():
         )
     )
 
-    example_arg = LaunchConfiguration("example_arg")
     rviz = LaunchConfiguration("rviz")
     gui = LaunchConfiguration("gui")
 
@@ -72,6 +64,7 @@ def generate_launch_description():
             {'frame_prefix': 'big_arm/'}],
         namespace="big_arm"
     )
+
     big_arm_jsp = Node(
         package="joint_state_publisher_gui",
         executable="joint_state_publisher_gui",
@@ -79,7 +72,16 @@ def generate_launch_description():
         condition=IfCondition(gui)
     )
 
-    # **************************
+    big_arm_static_pub = Node(
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        output="screen",
+        # arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "big_arm/big_arm_link_0"]
+        arguments=["3.7698", "0.3139", "1.6058", "-1.5708", "-0.2094", "0.0", "gateway_body/root", "big_arm/big_arm_link_0"] # YPR
+        # <!-- <origin xyz="3.7698 0.3139 1.6058" rpy="0.0 -0.2094 -1.5708"/> -->
+    )
+
+    # *************************
     #  Little Arm
     # **************************
     little_arm_xacro = Command([
@@ -106,22 +108,17 @@ def generate_launch_description():
     )
 
     little_arm_static_pub = Node(
-            package="tf2_ros",
-            executable="static_transform_publisher",
-            output="screen",
-            arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "little_arm/little_arm_link_0"]
-        )
-
-    big_arm_static_pub = Node(
-            package="tf2_ros",
-            executable="static_transform_publisher",
-            output="screen",
-            arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "big_arm/big_arm_link_0"]
-        )
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        output="screen",
+        # arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "little_arm/little_arm_link_0"]
+        arguments=["13.984", "-1.3352", "-1.3367", "0.0", "0.0", "2.3562", "gateway_body/root", "little_arm/little_arm_link_0"] # YPR
+        # <origin xyz="13.984 -1.3352 -1.3367" rpy="2.3562 0.0 0.0"/>
+    )
 
     # **************************************
     # RVIZ
-    #***************************************
+    # **************************************
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare("gateway_description"), "rviz", "view_gateway_assembled.rviz"]
     )

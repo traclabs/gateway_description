@@ -136,7 +136,8 @@
   <joint name="little_arm_joint_1" type="fixed">
     <parent link="little_arm_link_0"/>
     <child link="little_arm_link_1"/>
-    <origin xyz="13.984 -1.3352 -1.3367" rpy="2.3562 0.0 0.0"/>
+    <!-- <origin xyz="13.984 -1.3352 -1.3367" rpy="2.3562 0.0 0.0"/> -->
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
   </joint>
 
   <joint name="little_arm_joint_2" type="revolute">
