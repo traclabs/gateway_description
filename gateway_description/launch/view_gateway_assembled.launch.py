@@ -73,12 +73,15 @@ def generate_launch_description():
     )
 
     big_arm_static_pub = Node(
+        name="big_arm_static_publisher",
         package="tf2_ros",
         executable="static_transform_publisher",
         output="screen",
-        # arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "big_arm/big_arm_link_0"]
-        arguments=["3.7698", "0.3139", "1.6058", "-1.5708", "-0.2094", "0.0", "gateway_body/root", "big_arm/big_arm_link_0"] # YPR
-        # <!-- <origin xyz="3.7698 0.3139 1.6058" rpy="0.0 -0.2094 -1.5708"/> -->
+        # found this transform from the "older" model of a uni-body gateway model
+        arguments=["1.0213", "-3.9783", "-0.1377", # XYZ
+                   "0.12043", "-0.20551", "0.96527", "-0.10728", # XYZW
+                   "gateway_body/root",
+                   "big_arm/big_arm_link_0"]
     )
 
     # *************************
@@ -108,12 +111,15 @@ def generate_launch_description():
     )
 
     little_arm_static_pub = Node(
+        name="little_arm_static_publisher",
         package="tf2_ros",
         executable="static_transform_publisher",
         output="screen",
-        # arguments=["0", "0", "0", "-1.396", "0.0", "0.4363", "gateway_body/root", "little_arm/little_arm_link_0"]
-        arguments=["13.984", "-1.3352", "-1.3367", "0.0", "0.0", "2.3562", "gateway_body/root", "little_arm/little_arm_link_0"] # YPR
-        # <origin xyz="13.984 -1.3352 -1.3367" rpy="2.3562 0.0 0.0"/>
+        # found this transform from the "older" model of a uni-body gateway model
+        arguments=["0.79101", "-12.157", "-7.121", # XYZ
+                   "0.74426", "-0.51624", "0.96527", "-0.10728", # XYZW
+                   "gateway_body/root",
+                   "little_arm/little_arm_link_0"]
     )
 
     # **************************************
