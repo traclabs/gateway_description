@@ -44,6 +44,16 @@ def generate_launch_description():
             {'frame_prefix': 'gateway_body/'}],
         namespace="gateway_body"
     )
+    gateway_static_pub = Node(
+        name="gateway_static_publisher",
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        output="screen",
+        arguments=["0", "0", "0", # XYZ
+                   "0", "0", "0", "1", # XYZW
+                   "gateway_body/world",
+                   "world"]
+    )
 
     # ***********************
     #  Big Arm
@@ -78,10 +88,14 @@ def generate_launch_description():
         executable="static_transform_publisher",
         output="screen",
         # found this transform from the "older" model of a uni-body gateway model
-        arguments=["1.0213", "-3.9783", "-0.1377", # XYZ
-                   "0.12043", "-0.20551", "0.96527", "-0.10728", # XYZW
-                   "gateway_body/root",
-                   "big_arm/big_arm_link_0"]
+        # arguments=["1.0213", "-3.9783", "-0.1377", # XYZ
+        #            "0.12043", "-0.20551", "0.96527", "-0.10728", # XYZW
+        #            "gateway_body/root",
+        #            "big_arm/big_arm_link_1"]
+        arguments=["0", "0", "0", # XYZ
+                   "0", "0", "0", "1", # XYZW
+                   "world",
+                   "big_arm/root"]
     )
 
     # *************************
@@ -116,10 +130,14 @@ def generate_launch_description():
         executable="static_transform_publisher",
         output="screen",
         # found this transform from the "older" model of a uni-body gateway model
-        arguments=["0.79101", "-12.157", "-7.121", # XYZ
-                   "0.74426", "-0.51624", "0.96527", "-0.10728", # XYZW
-                   "gateway_body/root",
-                   "little_arm/little_arm_link_0"]
+        # arguments=["0.79101", "-12.157", "-7.121", # XYZ
+        #            "0.74426", "-0.51624", "0.96527", "-0.10728", # XYZW
+        #            "gateway_body/root",
+        #            "little_arm/little_arm_link_0"]
+        arguments=["0", "0", "0", # XYZ
+                   "0", "0", "0", "1", # XYZW
+                   "world",
+                   "little_arm/root"]
     )
 
     # **************************************
@@ -140,6 +158,7 @@ def generate_launch_description():
 
     nodes_to_start = [
         gateway_rsp,
+        gateway_static_pub,
         big_arm_rsp,
         big_arm_jsp,
         big_arm_static_pub,
