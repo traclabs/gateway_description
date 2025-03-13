@@ -3,17 +3,10 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch.conditions import IfCondition, UnlessCondition
+from launch.conditions import IfCondition
 
 def generate_launch_description():
     declared_arguments = []
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "example_arg",
-            default_value='false',
-            description="example arg to show how to do this",
-        )
-    )
     declared_arguments.append(
         DeclareLaunchArgument(
             "rviz",
@@ -29,7 +22,6 @@ def generate_launch_description():
         )
     )
 
-    example_arg = LaunchConfiguration("example_arg")
     rviz = LaunchConfiguration("rviz")
     gui = LaunchConfiguration("gui")
 
@@ -49,8 +41,18 @@ def generate_launch_description():
         output="both",
         parameters=[
             gateway_robot_description,
-            {'frame_prefix': ''}],
+            {'frame_prefix': 'gateway_body/'}],
         namespace="gateway_body"
+    )
+    gateway_static_pub = Node(
+        name="gateway_static_publisher",
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        output="screen",
+        arguments=["0", "0", "0", # XYZ
+                   "0", "0", "0", "1", # XYZW
+                   "gateway_body/world",
+                   "world"]
     )
 
     # ***********************
@@ -69,9 +71,10 @@ def generate_launch_description():
         output="both",
         parameters=[
             big_arm_robot_description,
-            {'frame_prefix': ''}],
+            {'frame_prefix': 'big_arm/'}],
         namespace="big_arm"
     )
+
     big_arm_jsp = Node(
         package="joint_state_publisher_gui",
         executable="joint_state_publisher_gui",
@@ -79,7 +82,23 @@ def generate_launch_description():
         condition=IfCondition(gui)
     )
 
-    # **************************
+    big_arm_static_pub = Node(
+        name="big_arm_static_publisher",
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        output="screen",
+        # found this transform from the "older" model of a uni-body gateway model
+        # arguments=["1.0213", "-3.9783", "-0.1377", # XYZ
+        #            "0.12043", "-0.20551", "0.96527", "-0.10728", # XYZW
+        #            "gateway_body/root",
+        #            "big_arm/big_arm_link_1"]
+        arguments=["0", "0", "0", # XYZ
+                   "0", "0", "0", "1", # XYZW
+                   "world",
+                   "big_arm/root"]
+    )
+
+    # *************************
     #  Little Arm
     # **************************
     little_arm_xacro = Command([
@@ -95,7 +114,7 @@ def generate_launch_description():
         output="both",
         parameters=[
             little_arm_robot_description,
-            {'frame_prefix': ''}],
+            {'frame_prefix': 'little_arm/'}],
         namespace="little_arm"
     )
     little_arm_jsp = Node(
@@ -105,9 +124,25 @@ def generate_launch_description():
         condition=IfCondition(gui)
     )
 
+    little_arm_static_pub = Node(
+        name="little_arm_static_publisher",
+        package="tf2_ros",
+        executable="static_transform_publisher",
+        output="screen",
+        # found this transform from the "older" model of a uni-body gateway model
+        # arguments=["0.79101", "-12.157", "-7.121", # XYZ
+        #            "0.74426", "-0.51624", "0.96527", "-0.10728", # XYZW
+        #            "gateway_body/root",
+        #            "little_arm/little_arm_link_0"]
+        arguments=["0", "0", "0", # XYZ
+                   "0", "0", "0", "1", # XYZW
+                   "world",
+                   "little_arm/root"]
+    )
+
     # **************************************
     # RVIZ
-    #***************************************
+    # **************************************
     rviz_config_file = PathJoinSubstitution(
         [FindPackageShare("gateway_description"), "rviz", "view_gateway_assembled.rviz"]
     )
@@ -123,10 +158,13 @@ def generate_launch_description():
 
     nodes_to_start = [
         gateway_rsp,
+        gateway_static_pub,
         big_arm_rsp,
         big_arm_jsp,
+        big_arm_static_pub,
         little_arm_rsp,
         little_arm_jsp,
+        little_arm_static_pub,
         rviz_node,
     ]
 

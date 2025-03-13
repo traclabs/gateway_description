@@ -142,6 +142,7 @@
   <joint name="little_arm_joint_2" type="revolute">
     <parent link="little_arm_link_1"/>
     <child link="little_arm_link_2"/>
+    <origin xyz="0.44043 0.010424 0.29487" rpy="0.0 0.0 0.0"/>
     <axis xyz="1 0 0"/>
     <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
   </joint>

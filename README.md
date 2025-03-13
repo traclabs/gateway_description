@@ -1,5 +1,5 @@
-# gateway_demos
-Gateway setup for testing Edoras and other robotic projects, backported to ROS1.
+# gateway_description
+NASA Lunar Gateway robot description (URDF + meshes).
 
 Rviz demo:
 -------------
