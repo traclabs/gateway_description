@@ -16,7 +16,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_1.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 -1.5708 0" xyz="0.25082 0 -0.175"/>
+      <mass value="105.98"/>
+      <inertia ixx="12.19" ixy="0" ixz="0" iyy="12.19" iyz="0" izz="3.061"/>
+    </inertial>  
   </link>
 
   <link name="big_arm_link_2">
@@ -29,7 +34,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_2.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.175 0 -0.25082"/>
+      <mass value="105.98"/>
+      <inertia ixx="12.19" ixy="0" ixz="0" iyy="12.13" iyz="0" izz="3.061"/>
+    </inertial>    
   </link>
 
   <link name="big_arm_link_3">
@@ -42,7 +52,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_3.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="3.14 0 0" xyz="4.0 0 -0.175"/>
+      <mass value="314.88"/>
+      <inertia ixx="15.41" ixy="0" ixz="0" iyy="2094.71" iyz="0" izz="2103.19"/>
+    </inertial>      
   </link>
 
   <link name="big_arm_link_4">
@@ -55,7 +70,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_4.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-3.6 0 -0.175"/>
+      <mass value="279.2"/>
+      <inertia ixx="9.522" ixy="0" ixz="0" iyy="1966.28" iyz="0" izz="1966.28"/>
+    </inertial>        
   </link>
 
   <link name="big_arm_link_5">
@@ -68,7 +88,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_5.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="1.5708 0 0" xyz="0 0 0.0"/>
+      <mass value="105.98"/>
+      <inertia ixx="8.305" ixy="0" ixz="0" iyy="3.061" iyz="0" izz="8.0386"/>
+    </inertial>       
   </link>
 
 
@@ -82,7 +107,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_6.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 -1.5708 0" xyz="0 0 0"/>
+      <mass value="105.98"/>
+      <inertia ixx="12.13" ixy="0" ixz="0" iyy="12.13" iyz="0" izz="3.061"/>
+    </inertial>     
   </link>
 
 
@@ -96,7 +126,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_7.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>      
   </link>
 
 
@@ -110,7 +145,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_8.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>    
   </link>
 
   <joint name="big_arm_joint_0" type="fixed">
