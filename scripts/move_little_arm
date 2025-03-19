@@ -47,10 +47,10 @@ class MoveArm(Node):
 
     def random_arm_callback(self, request, response):
         traj = JointTrajectory()
-        traj.joint_names = ["little_arm_joint_2", "little_arm_joint_3", "little_arm_joint_4", "little_arm_joint_5", "little_arm_joint_6", "little_arm_joint_7", "little_arm_joint_8", "little_arm_joint_9", 0.0]
+        traj.joint_names = ["little_arm_joint_2", "little_arm_joint_3", "little_arm_joint_4", "little_arm_joint_5", "little_arm_joint_6", "little_arm_joint_7", "little_arm_joint_8", "little_arm_joint_9"]
         
         point1 = JointTrajectoryPoint()
-        point1.positions = [-1.95, 0.0, -2.0, 0.085, -0.75, 0.28, 0.0]
+        point1.positions = [-1.95, 0.0, -2.0, 0.085, -0.75, 0.28, 0.0, 0.0]
         point1.time_from_start = Duration(sec=4)
 
         traj.points.append(point1)
