@@ -41,73 +41,23 @@ def generate_launch_description():
             ]   
     )
 
-    # Gateway body
-    gateway_urdf = os.path.join(gateway_path, 'robots', 'gateway_body.urdf.xacro')
-    gateway_doc = xacro.process_file(gateway_urdf)
-    gateway_urdf_content = gateway_doc.toxml()
-
-    gateway_spawn = Node(
-            package='ros_gz_sim',
-            executable='create',
-            name='spawn_gateway',
-            output='screen',
-            arguments=[
-              "-string", 
-              gateway_urdf_content, 
-              "-name", 'gateway', 
-              "-allow_renaming", "true",
-          ] 
-        ) 
-
-    # Big arm
-    big_arm_urdf = os.path.join(gateway_path, 'robots', 'big_arm.urdf.xacro')
-    big_arm_doc = xacro.process_file(big_arm_urdf, mappings={'parent_link' : 'world'}) #, 'rpy': '3.1416 0.0 0.0'})
-    big_arm_urdf_content = big_arm_doc.toxml()
-
-
-    #run_move_arm = Node(
-    #    package="canadarm",
-    #    executable="move_arm",
-    #    output='screen'
-    #)
-
-
-    big_arm_robot_state_publisher = Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{'robot_description': big_arm_urdf_content},
-            {"use_sim_time": True}])
-    
-    big_arm_spawn = Node(
-            package='ros_gz_sim',
-            executable='create',
-            name='spawn_big_arm',
-            output='screen',
-            arguments=[
-              "-string", 
-              big_arm_urdf_content, 
-              "-name", 'big_arm', 
-              "-allow_renaming", "true",
-          ] 
-        )      
-
-
-    # Control
-    big_arm_joint_state_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
-        output='screen'
+    # Spawn Gateway
+    gateway = IncludeLaunchDescription(
+    PathJoinSubstitution([
+      FindPackageShare("gateway_description"), "launch", "spawn_gateway.launch.py"]),
     )
-        
-    big_arm_joint_controller_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=["big_arm_joint_trajectory_controller", "-c", "/controller_manager"],
-        output='screen',
-    )
+
+    # Spawn big arm and its controllers
+    big_arm = IncludeLaunchDescription(
+    PathJoinSubstitution([
+      FindPackageShare("gateway_description"), "launch", "spawn_big_arm.launch.py"]),
+    ) 
+
+    # Spawn little arm and its controllers
+    little_arm = IncludeLaunchDescription(
+    PathJoinSubstitution([
+      FindPackageShare("gateway_description"), "launch", "spawn_little_arm.launch.py"]),
+    ) 
 
     # Make the /clock topic available in ROS
     gz_sim_bridge = Node(
@@ -123,23 +73,8 @@ def generate_launch_description():
         SetParameter(name='use_sim_time', value=True),    
         env_gz_sim,
         gz_launch,
-        gateway_spawn,
-        big_arm_robot_state_publisher,
-        big_arm_spawn,
-        ##run_node,
-#        run_move_arm,
-
-        RegisterEventHandler(
-            OnProcessExit(
-                target_action=big_arm_spawn,
-                on_exit=[big_arm_joint_state_broadcaster_spawner],
-            )
-        ),
-        RegisterEventHandler(
-            OnProcessExit(
-                target_action=big_arm_joint_state_broadcaster_spawner,
-                on_exit=[big_arm_joint_controller_spawner],
-            )
-        ),
+        gateway,
+        big_arm,
+        little_arm,
         gz_sim_bridge
     ])

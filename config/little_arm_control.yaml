@@ -1,4 +1,4 @@
-/big_arm/controller_manager:
+/little_arm/controller_manager:
   ros__parameters:
     update_rate: 100
 
@@ -8,17 +8,18 @@
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-/big_arm/joint_trajectory_controller:
+/little_arm/joint_trajectory_controller:
   ros__parameters:
     allow_nonzero_velocity_at_trajectory_end: false
     joints:
-      - big_arm_joint_2
-      - big_arm_joint_3
-      - big_arm_joint_4
-      - big_arm_joint_5
-      - big_arm_joint_6
-      - big_arm_joint_7
-      - big_arm_joint_8                              
+      - little_arm_joint_2
+      - little_arm_joint_3
+      - little_arm_joint_4
+      - little_arm_joint_5
+      - little_arm_joint_6
+      - little_arm_joint_7
+      - little_arm_joint_8
+      - little_arm_joint_9 
     interface_name: position
     command_interfaces:
       - position
