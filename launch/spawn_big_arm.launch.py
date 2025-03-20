@@ -77,11 +77,19 @@ def generate_launch_description():
         output='screen',
     )
     
+    image_bridge = Node(
+            package='ros_gz_image',
+            executable='image_bridge',
+            arguments=['/image_raw', '/image_raw'],
+            output='screen')
+    
+    
     return LaunchDescription([
         SetParameter(name='use_sim_time', value=True),    
         big_arm_robot_state_publisher,
         big_arm_spawn,
         big_arm_move,
+        image_bridge,
         RegisterEventHandler(
             OnProcessExit(
                 target_action=big_arm_spawn,

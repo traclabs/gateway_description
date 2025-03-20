@@ -40,6 +40,12 @@
         </gz-gui>
       </plugin>
  
+      <plugin filename="ImageDisplay" name="Image Display">
+        <gz-gui>
+          <property key="state" type="string">floating</property>
+        </gz-gui>
+      </plugin> 
+ 
     </gui>
 
     <physics name='default_physics' default='1' type='ignored'>
