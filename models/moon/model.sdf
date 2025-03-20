@@ -1,0 +1,36 @@
+<sdf version='1.9'>
+
+    <model name="moon">
+        <pose>170 0 -50 0 0 -1.5708</pose>
+        <static>1</static>
+        <link name='link'>
+          <inertial>
+            <mass>0.25</mass>
+            <inertia>
+              <ixx>1</ixx>
+              <ixy>0.000</ixy>
+              <ixz>0.000</ixz>
+              <iyy>1</iyy>
+              <iyz>0.000</iyz>
+              <izz>1</izz>
+            </inertia>
+          </inertial>
+          <visual name='visual'>
+            <geometry>
+              <mesh>
+                <uri>model://moon/meshes/moon.dae</uri>
+                <scale>1 1 1</scale>
+              </mesh>
+            </geometry>
+          </visual>
+          <velocity_decay>
+            <linear>0.000000</linear>
+            <angular>0.000000</angular>
+          </velocity_decay>
+          <self_collide>0</self_collide>
+          <kinematic>0</kinematic>
+          <gravity>0</gravity>        
+        </link>   
+    </model>
+
+</sdf>

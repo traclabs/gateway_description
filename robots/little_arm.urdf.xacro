@@ -1,11 +1,17 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="little_arm">
 
+  <xacro:arg name="parent_link" default="root" />
+  
   <xacro:include filename="$(find gateway_description)/xacro/little_arm_macro.xacro"/>
 
-  <link name="root"/>
+  <!-- Gazebo - ROS2 Control macro -->
+  <xacro:include filename="$(find gateway_description)/xacro/little_arm.gazebo.xacro" />
+  <xacro:gateway_little_arm_gazebo command_interface="position" />
 
-  <xacro:little_arm parent="root">
+  <link name="$(arg parent_link)"/>
+
+  <xacro:little_arm parent="$(arg parent_link)">
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.4363 -1.396"/>
   </xacro:little_arm>
 

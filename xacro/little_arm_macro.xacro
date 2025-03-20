@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="little_arm">
 
   <!-- LITTLE ARM -->  
-  <xacro:macro name="little_arm" params=" parent:='' *origin ">
+  <xacro:macro name="little_arm" params=" parent:='' effort:=2332 velocity:=0.0698 *origin ">
 
 
   <link name="little_arm_link_0"/>
@@ -17,7 +17,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_1.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="550.422"/>
+      <inertia ixx="24.6499" ixy="-0.291088" ixz="-0.102784" iyy="23.824" iyz="-4.06098" izz="23.7613"/>
+    </inertial>    
   </link>
 
   <link name="little_arm_link_2">
@@ -30,7 +35,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_2.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.173508 -0.0300499 -0.0499662"/>
+      <mass value="33.5272"/>
+      <inertia ixx="0.580764" ixy="-0.0770547" ixz="-0.0476339" iyy="0.497335" iyz="-0.0269257" izz="0.446148"/>
+    </inertial>    
   </link>
 
   <link name="little_arm_link_3">
@@ -43,7 +53,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_3.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.104632 -6.30748e-06 0.0133201"/>
+      <mass value="33.7845"/>
+      <inertia ixx="0.157109" ixy="3.37505e-06" ixz="0.00253518" iyy="0.14345" iyz="4.38914e-05" izz="0.222663"/>
+    </inertial>    
   </link>
 
   <link name="little_arm_link_4">
@@ -56,7 +71,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_4.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="-0.00622422 0.0129621 -0.104538"/>
+      <mass value="33.8161"/>
+      <inertia ixx="0.147648" ixy="-0.00351409" ixz="0.000100141" iyy="0.221961" iyz="-0.0042235" izz="0.160461"/>
+    </inertial>    
   </link>
 
   <link name="little_arm_link_5">
@@ -70,6 +90,11 @@
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_5.dae" scale="1.0 1.0 1.0"/>
       </geometry>
     </collision>    
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.250363 -0.0718547 0.00510753"/>
+      <mass value="102.114"/>
+      <inertia ixx="0.724753" ixy="0.526541" ixz="-0.000815258" iyy="4.80145" iyz="-7.6685e-05" izz="4.84377"/>
+    </inertial>
   </link>
 
 
@@ -83,7 +108,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_6.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.231175 -0.0909595 -0.000464751"/>
+      <mass value="100.374"/>
+      <inertia ixx="0.805978" ixy="0.444523" ixz="-0.0704152" iyy="4.7502" iyz="-0.0217411" izz="4.89759"/>
+    </inertial>         
   </link>
 
 
@@ -97,7 +127,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_7.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision> 
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="-0.00201876 -0.0987844 -0.012305"/>
+      <mass value="35.5519"/>
+      <inertia ixx="0.226425" ixy="-0.00140961" ixz="0.00011871" iyy="0.242722" iyz="-0.00272485" izz="0.207642"/>
+    </inertial>        
   </link>
 
 
@@ -111,7 +146,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_8.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.101053 -0.00153106 0.0255484"/>
+      <mass value="35.4028"/>
+      <inertia ixx="0.181332" ixy="0.000209396" ixz="-0.00521308" iyy="0.148371" iyz="-0.000702566" izz="0.216962"/>
+    </inertial>         
   </link>
 
   <link name="little_arm_link_9">
@@ -124,7 +164,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/little_arm/little_arm_link_9.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0345403 -0.0115104 -0.202042"/>
+      <mass value="77.6497"/>
+      <inertia ixx="1.02124" ixy="0.0555304" ixz="0.0666044" iyy="1.10279" iyz="-0.0188412" izz="0.645531"/>
+    </inertial>         
   </link>
 
   <joint name="little_arm_joint_0" type="fixed">
@@ -144,7 +189,7 @@
     <child link="little_arm_link_2"/>
     <origin xyz="0.44043 0.010424 0.29487" rpy="0.0 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
   <joint name="little_arm_joint_3" type="revolute">
@@ -152,7 +197,7 @@
     <child link="little_arm_link_3"/>
     <origin xyz="0.38687 -0.008157 0.011094" rpy="0.0 0.0  0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -161,7 +206,7 @@
     <child link="little_arm_link_4"/>
     <origin xyz="0.097745 0.0 -0.10467" rpy="0.0 0.0 1.5708"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -170,7 +215,7 @@
     <child link="little_arm_link_5"/>
     <origin xyz="-0.006176 -0.10467 -0.094197" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -179,7 +224,7 @@
     <child link="little_arm_link_6"/>
     <origin xyz="0.47551 -0.21354 0.008568" rpy="0.0 -0.6108 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -188,7 +233,7 @@
     <child link="little_arm_link_7"/>
     <origin xyz="0.47551 -0.21354 0.008567" rpy="0.0 0.4363324 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -197,7 +242,7 @@
     <child link="little_arm_link_8"/>
     <origin xyz="0.10062 -0.10467 -0.014366" rpy="0.0 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
   <joint name="little_arm_joint_9" type="revolute">
@@ -205,7 +250,7 @@
     <child link="little_arm_link_9"/>
     <origin xyz="0.10467 0.000167 -0.10062" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
   </xacro:macro>
