@@ -11,7 +11,7 @@ from os import environ
 from ament_index_python.packages import get_package_share_directory
 
 import xacro
- 
+
 
 def generate_launch_description():
 
@@ -29,11 +29,22 @@ def generate_launch_description():
             output='screen',
             parameters=[{'robot_description': gateway_urdf_content},
             {"use_sim_time": True},
-#            {'frame_prefix': 'gateway/'},
+            # {'frame_prefix': 'gateway/'},
             ],
             namespace="gateway",
     )
-    
+
+    # gateway_static_pub = Node(
+    #     name="gateway_static_publisher",
+    #     package="tf2_ros",
+    #     executable="static_transform_publisher",
+    #     output="screen",
+    #     arguments=["0", "0", "0", # XYZ
+    #                "0", "0", "0", "1", # XYZW
+    #                "world",
+    #                "gateway/world"]
+    # )
+
     # Spawn in Gazebo
     gateway_spawn = Node(
             package='ros_gz_sim',
@@ -42,17 +53,17 @@ def generate_launch_description():
             output='screen',
             arguments=[
               "-string", 
-              gateway_urdf_content, 
-              "-name", 'gateway', 
+              gateway_urdf_content,
+              "-name", 'gateway',
               "-allow_renaming", "true",
             ],
-            namespace="gateway" 
-        )      
+            namespace="gateway"
+        )
 
-    
+
     return LaunchDescription([
-        SetParameter(name='use_sim_time', value=True),    
+        SetParameter(name='use_sim_time', value=True),
         gateway_robot_state_publisher,
-        gateway_spawn
-    ])    
-    
+        gateway_spawn,
+        # gateway_static_pub
+    ])

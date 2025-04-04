@@ -29,7 +29,7 @@ def generate_launch_description():
             output='screen',
             parameters=[{'robot_description': little_arm_urdf_content},
             {"use_sim_time": True},
-#            {'frame_prefix': 'little_arm/'},
+            # {'frame_prefix': 'little_arm/'},
             ],
             namespace="little_arm",
     )
@@ -46,7 +46,7 @@ def generate_launch_description():
               "-name", 'little_arm', 
               "-allow_renaming", "true",
             ],
-            namespace="little_arm" 
+            namespace="little_arm"
         )      
 
     # Test motion with services
@@ -65,7 +65,8 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster", "--controller-manager", "/little_arm/controller_manager"],
         name="start_joint_state_broadcaster",
         namespace="little_arm",
-        output='screen'
+        output='screen',
+        # respawn=True,
     )
         
     little_arm_joint_controller_spawner = Node(
@@ -83,16 +84,17 @@ def generate_launch_description():
         little_arm_spawn,
         little_arm_move,
         RegisterEventHandler(
-            OnProcessExit(
+            OnExecutionComplete(
                 target_action=little_arm_spawn,
-                on_exit=[little_arm_joint_state_broadcaster_spawner],
+                on_completion=[little_arm_joint_state_broadcaster_spawner],
             )
         ),
         RegisterEventHandler(
-            OnProcessExit(
+            OnExecutionComplete(
                 target_action=little_arm_joint_state_broadcaster_spawner,
-                on_exit=[little_arm_joint_controller_spawner],
+                on_completion=[little_arm_joint_controller_spawner],
             )
         )
+        # little_arm_joint_controller_spawner
     ])    
     

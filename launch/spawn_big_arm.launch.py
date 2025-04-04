@@ -29,7 +29,7 @@ def generate_launch_description():
             output='screen',
             parameters=[{'robot_description': big_arm_urdf_content},
             {"use_sim_time": True},
-#            {'frame_prefix': 'big_arm/'},
+            # {'frame_prefix': 'big_arm/'},
             ],
             namespace="big_arm",
     )
@@ -46,7 +46,7 @@ def generate_launch_description():
               "-name", 'big_arm', 
               "-allow_renaming", "true",
             ],
-            namespace="big_arm" 
+            namespace="big_arm"
         )      
 
     # Test motion with services
@@ -65,7 +65,8 @@ def generate_launch_description():
         arguments=["joint_state_broadcaster", "--controller-manager", "/big_arm/controller_manager"],
         name="start_joint_state_broadcaster",
         namespace="big_arm",
-        output='screen'
+        output='screen',
+        # respawn=True
     )
         
     big_arm_joint_controller_spawner = Node(
@@ -91,16 +92,18 @@ def generate_launch_description():
         big_arm_move,
         image_bridge,
         RegisterEventHandler(
-            OnProcessExit(
+            OnExecutionComplete(
                 target_action=big_arm_spawn,
-                on_exit=[big_arm_joint_state_broadcaster_spawner],
+                on_completion=[big_arm_joint_state_broadcaster_spawner],
             )
         ),
         RegisterEventHandler(
-            OnProcessExit(
+            OnExecutionComplete(
                 target_action=big_arm_joint_state_broadcaster_spawner,
-                on_exit=[big_arm_joint_controller_spawner],
+                on_completion=[big_arm_joint_controller_spawner],
             )
         )
+        # big_arm_joint_state_broadcaster_spawner,
+        # big_arm_joint_controller_spawner
     ])    
     
