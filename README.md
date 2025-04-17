@@ -6,7 +6,7 @@ NASA Lunar Gateway robot description (URDF + meshes + launch files to run in Gaz
 **How to run:**
 
 ```
-ros2 launch gateway_description gateway.launch.py
+ros2 launch gateway_description gateway_gz.launch.py
 ```
 You should see something like this:
 
