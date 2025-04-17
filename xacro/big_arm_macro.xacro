@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="big_arm">
 
   <!-- BIG ARM -->
-  <xacro:macro name="big_arm" params=" parent:='' *origin ">
+  <xacro:macro name="big_arm" params=" parent:='' effort:=2332 velocity:=0.0698 *origin ">
 
   <link name="big_arm_link_0"/>
 
@@ -16,7 +16,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_1.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0.0 0" xyz="0.0 0.0 0.0"/>
+      <mass value="199.32"/>
+      <inertia ixx="5.32" ixy="0.08" ixz="0.05" iyy="5.45" iyz="-0.48" izz="3.41"/>
+    </inertial>  
   </link>
 
   <link name="big_arm_link_2">
@@ -29,7 +34,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_2.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0003 0.0119 0.1538"/>
+      <mass value="114.07"/>
+      <inertia ixx="1.15" ixy="0" ixz="0" iyy="1.57" iyz="0.07" izz="1.219"/>
+    </inertial>    
   </link>
 
   <link name="big_arm_link_3">
@@ -42,7 +52,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_3.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="0.027 -0.158 -0.00389"/>
+      <mass value="104.23"/>
+      <inertia ixx="1.461" ixy="-0.004688" ixz="-0.00272" iyy="1.267" iyz="-0.004355" izz="1.2999"/>
+    </inertial>      
   </link>
 
   <link name="big_arm_link_4">
@@ -55,7 +70,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_4.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial auto="true">
+      <origin rpy="0 0 0" xyz="0.068 -0.0215 2.311"/>
+      <mass value="1009.8049"/>
+      <inertia ixx="1039.65" ixy="-4.50" ixz="75.17" iyy="1063.62" iyz="5.92" izz="38.36"/>
+    </inertial>        
   </link>
 
   <link name="big_arm_link_5">
@@ -68,7 +88,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_5.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.27 0.0052 -1.6147"/>
+      <mass value="1105.62"/>
+      <inertia ixx="1630.99" ixy="-4.146" ixz="-75.05" iyy="1657.002" iyz="-5.089" izz="40.19"/>
+    </inertial>       
   </link>
 
 
@@ -82,7 +107,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_6.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.1549 -0.017 -0.00327"/>
+      <mass value="96.32"/>
+      <inertia ixx="1.11" ixy="0.0299" ixz="0.0082" iyy="1.333" iyz="0.0096" izz="1.1131"/>
+    </inertial>     
   </link>
 
 
@@ -96,7 +126,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_7.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0289 -0.1639 -0.01698"/>
+      <mass value="123.193"/>
+      <inertia ixx="1.7418" ixy="-0.0206" ixz="-0.000706" iyy="1.72372" iyz="-0.07149" izz="1.7646"/>
+    </inertial>      
   </link>
 
 
@@ -110,7 +145,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/big_arm/big_arm_link_8.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.001862 0.00626 -0.2257"/>
+      <mass value="199.327"/>
+      <inertia ixx="4.778" ixy="-0.068" ixz="0.0139" iyy="4.571" iyz="0.0458" izz="3.311"/>
+    </inertial>    
   </link>
 
   <joint name="big_arm_joint_0" type="fixed">
@@ -129,7 +169,7 @@
     <parent link="big_arm_link_1"/>
     <child link="big_arm_link_2"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
     <origin xyz="0.0 0.0 0.4409" rpy="0.0 0.0 0.8726648"/>
   </joint>
 
@@ -138,7 +178,7 @@
     <child link="big_arm_link_3"/>
     <origin xyz="0.0 -0.177 0.1515" rpy="2.98023e-8 0.0  1.862645e-8"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -147,7 +187,7 @@
     <child link="big_arm_link_4"/>
     <origin xyz="0.17432 -0.1594 0.0" rpy="0.95993114 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -156,7 +196,7 @@
     <child link="big_arm_link_5"/>
     <origin xyz="0.3503 -0.004789 3.6578" rpy="1.3089968 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -165,7 +205,7 @@
     <child link="big_arm_link_6"/>
     <origin xyz="0.3503 0.004781 -3.6578" rpy="-0.5235989 0.0 0.0"/>
     <axis xyz="1 0 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -174,7 +214,7 @@
     <child link="big_arm_link_7"/>
     <origin xyz="0.17429 -0.15194 0.0" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 1 0"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
 
@@ -183,7 +223,7 @@
     <child link="big_arm_link_8"/>
     <origin xyz="-0.004217 -0.1708 -0.181" rpy="0.0 0.0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-3.14" upper="3.14" velocity="3.1416" effort="100"/> <!-- MADE UP NUMBERS JUST FOR TESTING -->
+    <limit lower="-3.14" upper="3.14" velocity="${velocity}" effort="${effort}"/>
   </joint>
 
   </xacro:macro>

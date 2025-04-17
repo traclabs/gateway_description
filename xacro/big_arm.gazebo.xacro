@@ -1,0 +1,101 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="gateway_big_arm_gazebo" params="command_interface:=position">
+
+  <ros2_control name="GazeboSystem" type="system">
+      <hardware>
+          <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+      <joint name="big_arm_joint_2">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+      <joint name="big_arm_joint_3">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+      <joint name="big_arm_joint_4">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+      <joint name="big_arm_joint_5">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+      <joint name="big_arm_joint_6">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+      <joint name="big_arm_joint_7">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+      <joint name="big_arm_joint_8">
+          <command_interface name="${command_interface}"/>
+          <state_interface name="position"/>
+          <state_interface name="velocity"/>
+          <state_interface name="effort"/>
+      </joint>
+  </ros2_control>
+
+  <gazebo>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <parameters>$(find gateway_description)/config/big_arm_control.yaml</parameters>
+        <ros>
+          <namespace>big_arm</namespace>
+          <remapping>/robot_description:=/big_arm/robot_description</remapping>
+        </ros>
+      </plugin>
+  </gazebo>
+  
+  <!-- Simulate camera at the end of big arm-->
+  <link name="big_arm_dummy_camera_link"/>
+
+  <joint name="big_arm_camera_joint" type="fixed">
+    <parent link="big_arm_link_8"/>
+    <child link="big_arm_dummy_camera_link"/>
+    <origin xyz="0 0 -0.50" rpy="0 1.5708 1.5708"/>
+  </joint>
+  
+  <gazebo reference="big_arm_dummy_camera_link">
+      <sensor type="camera" name="camera_sensor">
+          <visualize>1</visualize>
+          <update_rate>10.0</update_rate>
+          <camera>
+              <pose>1.0 0 0 0 0 -1.57</pose>
+              <horizontal_fov>1.3962634</horizontal_fov>
+              <image>
+                  <width>800</width>
+                  <height>800</height>
+                  <format>R8G8B8</format>
+              </image>
+              <clip>
+              <near>0.01</near>
+              <far>100</far>
+              </clip>
+              <noise>
+              <type>gaussian</type>
+              <stddev>0.007</stddev>
+              </noise>
+          </camera>
+          <always_on>1</always_on>
+          <topic>image_raw</topic>
+      </sensor>
+  </gazebo>
+
+  </xacro:macro>
+
+</robot>  

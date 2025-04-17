@@ -22,7 +22,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/airlock/airlock.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>         
   </link>
 
 
@@ -36,7 +41,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/ihab/ihab.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision> 
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>        
   </link>
 
   <link name="ng_halo">
@@ -49,7 +59,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/ng_halo/ng_halo.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>      
   </link>
 
   <link name="ermxl">
@@ -62,7 +77,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/ermxl/ermxl.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>     
   </link>
 
   <link name="maxar_ppe">
@@ -75,7 +95,12 @@
       <geometry>
         <mesh filename="package://gateway_description/meshes/maxar_ppe/maxar_ppe.dae" scale="1.0 1.0 1.0"/>
       </geometry>
-    </collision>    
+    </collision>
+    <inertial>
+      <origin rpy="0 1.5708 0" xyz="0 0 -0.5"/>
+      <mass value="243.66"/>
+      <inertia ixx="9.336" ixy="0" ixz="0" iyy="44.41" iyz="0" izz="44.41"/>
+    </inertial>         
   </link>
 
 
