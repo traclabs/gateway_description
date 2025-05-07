@@ -5,10 +5,10 @@
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.0 0.0 0.0 1</background>
       <grid>false</grid>
-    </scene>   
+    </scene>
 
     <gui fullscreen="0">
- 
+
       <!-- 3D scene -->
       <plugin filename="MinimalScene" name="3D View">
         <gz-gui>
@@ -16,7 +16,7 @@
           <property type="bool" key="showTitleBar">false</property>
           <property type="string" key="state">docked</property>
         </gz-gui>
- 
+
         <engine>ogre2</engine>
         <scene>scene</scene>
         <camera_pose>-10.0 -12 8.0 0 0.5 0.3</camera_pose>
@@ -39,13 +39,13 @@
           <property key="showTitleBar" type="bool">false</property>
         </gz-gui>
       </plugin>
- 
+
       <plugin filename="ImageDisplay" name="Image Display">
         <gz-gui>
           <property key="state" type="string">floating</property>
         </gz-gui>
-      </plugin> 
- 
+      </plugin>
+
     </gui>
 
     <physics name='default_physics' default='1' type='ignored'>
@@ -67,7 +67,7 @@
     <plugin
       filename="gz-sim-scene-broadcaster-system"
       name="gz::sim::systems::SceneBroadcaster">
-    </plugin> 
+    </plugin>
 
     <plugin
       filename="gz-sim-sensors-system"
@@ -93,41 +93,11 @@
 
     <!-- Moon -->
     <include>
-      <uri>model://moon</uri>      
+      <uri>model://moon</uri>
       <name>moon</name>
       <pose>170 0 -50 0 0 0.0</pose>
     </include>
 
-    <!--<model name="iss">
-      <pose>1 -0.7 -2.3 0 0 1.5708</pose>
-      <static>1</static>
-      <link name="link">
-        <inertial>
-          <ixx>1</ixx>
-          <ixy>0.000</ixy>
-          <ixz>0.000</ixz>
-          <iyy>1</iyy>
-          <iyz>0.000</iyz>
-          <izz>1</izz>
-        </inertial>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://canadarm/meshes/iss.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-        </visual>
-        <velocity_decay>
-          <linear>0.000000</linear>
-          <angular>0.000000</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>0</gravity>  
-      </link>
-    </model>-->
-
   </world>
-   
+
 </sdf>
