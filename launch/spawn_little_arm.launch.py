@@ -35,6 +35,7 @@ def generate_launch_description():
     executable="create",
     name="spawn",
     output="screen",
+    parameters=[{"use_sim_time": True}],
     arguments=[
       "-string",
       little_arm_urdf_content,
@@ -49,6 +50,7 @@ def generate_launch_description():
     package="gateway_description",
     executable="move_little_arm",
     namespace="little_arm",
+    parameters=[{"use_sim_time": True}],
     output="screen"
   )
 
@@ -59,6 +61,7 @@ def generate_launch_description():
     arguments=["joint_state_broadcaster", "--controller-manager", "/little_arm/controller_manager"],
     name="start_joint_state_broadcaster",
     namespace="little_arm",
+    parameters=[{"use_sim_time": True}],
     output="screen",
   )
 
@@ -68,11 +71,11 @@ def generate_launch_description():
     arguments=["joint_trajectory_controller", "-c", "/little_arm/controller_manager"],
     name="start_joint_trajectory_controller",
     namespace="little_arm",
+    parameters=[{"use_sim_time": True}],
     output="screen",
   )
 
   return LaunchDescription([
-    SetParameter(name="use_sim_time", value=True),
     little_arm_robot_state_publisher,
     little_arm_spawn,
     little_arm_move,
