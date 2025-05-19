@@ -1,0 +1,9 @@
+meshes/maxar_ppe filter=lfs diff=lfs merge=lfs -text
+meshes/ng_halo filter=lfs diff=lfs merge=lfs -text
+meshes/us_lab_segments filter=lfs diff=lfs merge=lfs -text
+meshes/airlock filter=lfs diff=lfs merge=lfs -text
+meshes/big_arm filter=lfs diff=lfs merge=lfs -text
+meshes/ermxl filter=lfs diff=lfs merge=lfs -text
+meshes/ihab filter=lfs diff=lfs merge=lfs -text
+meshes/little_arm filter=lfs diff=lfs merge=lfs -text
+models/moon filter=lfs diff=lfs merge=lfs -text
