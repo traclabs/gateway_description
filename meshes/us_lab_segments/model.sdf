@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+
+    <model name="ISS_Lap_PortABC" static="True">
+      <origin pose="-7.98 .51 4.4 3.14159 0 3.14159"/>
+      <link name="lab_deck">
+        <inertial mass="0.1">
+          <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+        </inertial>
+        <collision name="port_col">
+          <geometry>
+            <mesh><uri>model://ISS_Segmented/US_Lab_PortReduction.dae</uri></mesh>
+          </geometry>
+        </collision>
+        <visual name="port_vis">
+          <geometry>
+            <mesh><uri>model://ISS_Segmented/US_Lab_PortReduction.dae</uri></mesh>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+
+</sdf>
