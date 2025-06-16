@@ -56,7 +56,7 @@ def generate_launch_description():
   big_arm_joint_state_broadcaster_spawner = Node(
     package="controller_manager",
     executable="spawner",
-    arguments=["joint_state_broadcaster", "--controller-manager", "/big_arm/controller_manager"],
+    arguments=["joint_state_broadcaster", "--controller-manager", "/big_arm/controller_manager", "--switch-timeout", "100.0"],
     name="start_joint_state_broadcaster",
     namespace="big_arm",
     output="screen",
@@ -65,7 +65,7 @@ def generate_launch_description():
   big_arm_joint_controller_spawner = Node(
     package="controller_manager",
     executable="spawner",
-    arguments=["joint_trajectory_controller", "-c", "/big_arm/controller_manager"],
+    arguments=["joint_trajectory_controller", "-c", "/big_arm/controller_manager", "--switch-timeout", "100.0"],
     name="start_joint_trajectory_controller",
     namespace="big_arm",
     output="screen",
