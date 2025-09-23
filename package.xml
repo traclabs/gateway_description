@@ -4,15 +4,15 @@
   <version>1.0.0</version>
   <description>The gateway_description package</description>
 
-  <maintainer email="robotics@traclabs.com">Robot Lab</maintainer>
+  <maintainer email="robotics@traclabs.com">TRACLabs Robotics</maintainer>
 
   <license>BSD</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>ament_cmake_python</buildtool_depend>
-    
+
   <depend>rviz_rendering</depend>
-  
+
   <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
@@ -21,9 +21,9 @@
   <exec_depend>rviz2</exec_depend>
   <exec_depend>urdf</exec_depend>
   <exec_depend>xacro</exec_depend>
-    
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>
-    
+
 </package>
