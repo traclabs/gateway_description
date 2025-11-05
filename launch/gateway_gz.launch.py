@@ -1,9 +1,9 @@
 from launch import LaunchDescription
-from launch.actions import SetEnvironmentVariable, IncludeLaunchDescription
-from launch.substitutions import PathJoinSubstitution
+from launch.actions import SetEnvironmentVariable, IncludeLaunchDescription, DeclareLaunchArgument
+from launch.substitutions import PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node, SetParameter
 from launch_ros.substitutions import FindPackageShare
-from launch.event_handlers import OnProcessExit
+from launch.conditions import IfCondition, UnlessCondition
 
 from ament_index_python.packages import get_package_share_directory
 
@@ -12,6 +12,14 @@ import xacro
 
 
 def generate_launch_description():
+
+  gz_gui = DeclareLaunchArgument(
+    'gz_gui',
+    default_value='true',
+    description='Enable/disable Gazebo GUI (true/false)'
+  )
+
+  gui = LaunchConfiguration('gz_gui')
 
   # Gazebo setup
   sim_resource_path = os.pathsep.join([
@@ -26,15 +34,31 @@ def generate_launch_description():
   ])
 
   # Launch gazebo world
-  gz_launch = IncludeLaunchDescription(
+  gz_launch_gui = IncludeLaunchDescription(
     PathJoinSubstitution([FindPackageShare("ros_gz_sim"), "launch", "gz_sim.launch.py"]),
     launch_arguments=[
       ("gz_args", [
           cislunar_sdf,
           " -r",
-          " -v 4"
+          " -v 4",
+          " -g"
       ])
-    ]
+    ],
+    condition=IfCondition(gui)
+  )
+
+    # Launch gazebo world
+  gz_launch_headless = IncludeLaunchDescription(
+    PathJoinSubstitution([FindPackageShare("ros_gz_sim"), "launch", "gz_sim.launch.py"]),
+    launch_arguments=[
+      ("gz_args", [
+          cislunar_sdf,
+          " -r",
+          " -v 4",
+          " -s"
+      ])
+    ],
+    condition=UnlessCondition(gui)
   )
 
   # Spawn Gateway
@@ -71,7 +95,9 @@ def generate_launch_description():
   return LaunchDescription([
     SetParameter(name="use_sim_time", value=True),
     env_gz_sim,
-    gz_launch,
+    gz_gui,
+    gz_launch_gui,
+    gz_launch_headless,
     gateway,
     big_arm,
     little_arm,
