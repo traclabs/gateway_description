@@ -41,7 +41,6 @@ def generate_launch_description():
           cislunar_sdf,
           " -r",
           " -v 4",
-          " -g"
       ])
     ],
     condition=IfCondition(gui)
